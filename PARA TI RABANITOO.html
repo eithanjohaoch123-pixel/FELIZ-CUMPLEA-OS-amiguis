@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feliz Cumpleaños ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+
+<style>
+    /* ===========================
+   FUENTES Y CONFIGURACIÓN
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    overflow-x:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+    background:#070812;
+
+    color:white;
+
+}
+
+
+/* ===========================
+      FONDO ANIMADO
+=========================== */
+
+.background{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    z-index:-3;
+
+    background:
+    radial-gradient(circle at top,#273c75,#090b15 65%);
+
+}
+
+
+/* Estrellas */
+
+.background::before{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(white 1px,transparent 1px);
+
+background-size:90px 90px;
+
+background-position:0 0,45px 45px;
+
+opacity:.45;
+
+animation:stars 60s linear infinite;
+
+}
+
+@keyframes stars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(-250px);
+
+}
+
+}
+
+
+
+/* ===========================
+          HERO
+=========================== */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+padding:30px;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:65px;
+
+font-family:"Great Vibes",cursive;
+
+color:#ffd166;
+
+text-shadow:
+
+0 0 10px #fff,
+
+0 0 20px gold,
+
+0 0 40px orange;
+
+margin-bottom:15px;
+
+}
+
+.hero h2{
+
+font-size:38px;
+
+margin-bottom:20px;
+
+color:#fff;
+
+}
+
+.hero p{
+
+max-width:700px;
+
+font-size:20px;
+
+line-height:1.8;
+
+opacity:.95;
+
+margin-bottom:40px;
+
+}
+
+
+/* ===========================
+         BOTÓN
+=========================== */
+
+button{
+
+padding:18px 42px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:linear-gradient(45deg,#ff4d6d,#ff85a2);
+
+color:white;
+
+font-weight:bold;
+
+transition:.35s;
+
+box-shadow:
+
+0 0 20px rgba(255,0,120,.5);
+
+}
+
+button:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 30px hotpink,
+
+0 0 60px deeppink;
+
+}
+
+
+
+/* ===========================
+            CARTA
+=========================== */
+
+.carta{
+
+padding:120px 20px;
+
+display:flex;
+
+justify-content:center;
+
+}
+
+.papel{
+
+width:90%;
+
+max-width:900px;
+
+background:white;
+
+color:#333;
+
+padding:60px;
+
+border-radius:25px;
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.4);
+
+}
+
+.papel h2{
+
+text-align:center;
+
+font-size:42px;
+
+margin-bottom:35px;
+
+font-family:"Great Vibes",cursive;
+
+color:#ff3c78;
+
+}
+
+#textoCarta{
+
+font-size:21px;
+
+line-height:2;
+
+white-space:pre-line;
+
+}
+
+
+
+/* ===========================
+          GALERÍA
+=========================== */
+
+.galeria{
+
+padding:100px 20px;
+
+text-align:center;
+
+}
+
+.galeria h2{
+
+font-size:48px;
+
+margin-bottom:50px;
+
+font-family:"Great Vibes",cursive;
+
+}
+
+.carrusel3d{
+    position:relative;
+    width:220px;
+    height:320px;
+    margin:80px auto;
+    transform-style:preserve-3d;
+    animation:girar 20s linear infinite;
+}
+
+.carrusel3d span{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform:
+        rotateY(calc(var(--i)*45deg))
+        translateZ(420px);
+}
+
+.carrusel3d img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 0 25px hotpink;
+    transition:.4s;
+}
+
+.carrusel3d img:hover{
+    transform:scale(1.08);
+}
+
+@keyframes girar{
+    from{
+        transform:perspective(1200px) rotateY(0deg);
+    }
+    to{
+        transform:perspective(1200px) rotateY(360deg);
+    }
+}
+
+/* ===========================
+        VISOR
+=========================== */
+
+.visor{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.95);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999;
+
+backdrop-filter:blur(6px);
+
+}
+
+.visor img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:20px;
+
+animation:zoom .4s;
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.5);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+#cerrar{
+
+position:absolute;
+
+top:25px;
+
+right:40px;
+
+font-size:42px;
+
+cursor:pointer;
+
+color:white;
+
+transition:.3s;
+
+}
+
+#cerrar:hover{
+
+transform:rotate(180deg);
+
+color:#ff4d6d;
+
+}
+
+
+
+/* ===========================
+       CORAZONES
+=========================== */
+
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+font-size:22px;
+
+animation:float linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0) rotate(0);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* ===========================
+         OCULTO
+=========================== */
+
+.oculto{
+
+display:none;
+
+}
+
+
+
+/* ===========================
+      CANVAS FUEGOS
+=========================== */
+
+#fireworks{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+z-index:100;
+
+}
+
+
+
+/* ===========================
+      RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:48px;
+
+}
+
+.hero h2{
+
+font-size:28px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+.papel{
+
+padding:35px;
+
+}
+
+.papel h2{
+
+font-size:34px;
+
+}
+
+#textoCarta{
+
+font-size:18px;
+
+}
+
+.galeria h2{
+
+font-size:36px;
+
+}
+
+.imagenes img{
+
+height:230px;
+
+}
+
+button{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+    <!-- Fondo -->
+    <div class="background"></div>
+
+    <!-- Corazones -->
+    <div id="hearts"></div>
+
+    <!-- Pantalla principal -->
+
+    <section class="hero">
+
+        <h1>🎂 Para la mejor persona que pude haber conocidoo feliz cumpleaños a mi mejor amiguis del mundooo</h1>
+
+        <h2 id="nombre">
+            Para ti My rabanitoo 
+        </h2>
+
+        <p>
+            Bueno te hice esto amiguis espero te guste muchooo 
+            fue lo mejor que pude hacerte hoy 
+        espero y sea de tu agrado esto que hice para ti.        </p>
+
+        <button id="abrir">
+            🎁 Un regalo para ti rabanito
+        </button>
+
+    </section>
+
+
+
+    <!-- Carta -->
+
+    <section class="carta oculto" id="carta">
+
+        <div class="papel">
+
+            <h2>Una pequeña carta para mi amiguis</h2>
+
+            <p id="textoCarta"></p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Galería -->
+
+    <section class="galeria oculto" id="galeria">
+
+        <h2>
+
+            Nuestros recuerdos 📸
+
+        </h2>
+<div class="carrusel3d">
+
+    <span style="--i:1;"><img src="fotos/foto1.jpg"></span>
+    <span style="--i:2;"><img src="fotos/foto2.jpg"></span>
+    <span style="--i:3;"><img src="fotos/foto3.jpg"></span>
+    <span style="--i:4;"><img src="fotos/foto4.jpg"></span>
+    <span style="--i:5;"><img src="fotos/foto5.jpg"></span>
+    <span style="--i:6;"><img src="fotos/foto6.jpg"></span>
+    <span style="--i:7;"><img src="fotos/foto7.jpg"></span>
+    <span style="--i:8;"><img src="fotos/foto8.jpg"></span>
+    <span style="--i:9;"><img src="fotos/foto9.jpg"></span>
+    <span style="--i:10;"><img src="fotos/foto10.jpg"></span>
+    <span style="--i:11;"><img src="fotos/foto11.jpg"></span>
+</div>
+
+    </section>
+
+
+
+    <!-- Visor -->
+
+    <div id="visor" class="visor">
+
+        <span id="cerrar">
+
+            ✖
+
+        </span>
+
+        <img id="imagenGrande">
+
+    </div>
+
+
+
+    <!-- Canvas -->
+
+    <canvas id="fireworks"></canvas>
+
+    <script>
+        // ==============================
+// CONFIGURACIÓN
+// ==============================
+
+const boton = document.getElementById("abrir");
+const carta = document.getElementById("carta");
+const galeria = document.getElementById("galeria");
+const fotos = document.querySelectorAll(".carrusel3d img");
+const textoCarta = document.getElementById("textoCarta");
+
+const mensaje = `
+
+Feliz cumpleaños, rabanitooooooooooo ❤️
+Bueno, ¿qué te puedo decir, amiguis? Antes que nada, quiero desearte un muy feliz cumpleaños. Hoy comienzas una nueva etapa en tu vida y, con ella, llegarán nuevas responsabilidades,
+pero sé que las vas a afrontar muy bien porque eres una chica inteligente, bonita, alegre, divertida, bondadosa con los animales, una gran persona y muy sensible. Nunca cambies esa hermosa personalidad que tienes. Siempre aprendes de tus errores y eso es algo que admiro mucho de ti.
+Eres una amiga increíble para todos, pero para mí eres mi mejor amiga del mundo, la mejor persona que he tenido la suerte de conocer.
+¿Te acuerdas cuando empezamos a hablar? La primera vez no nos fue tan bien jajaja, en segundo tampoco nos entendíamos mucho, pero ya en tercero todo cambió y comenzamos a llevarnos muy bien. Me alegra muchísimo haberme hecho amigo tuyo en ese momento, porque desde entonces hemos compartido muchos recuerdos y momentos que siempre voy a guardar con mucho cariño.
+Gracias por confiar en mí, por estar a mi lado cuando lo necesitaba y por hacerme sentir que podía contar contigo. De verdad, eso significa muchísimo para mí.
+Y bueno... también quería contarte otra vez por qué te digo "rabanito". Es por tus cachetitos jajaja. Siempre me daban ganas de apretarlos cuando podía, y de ahí nació ese apodo con mucho cariño. Aunque a veces no sé si realmente te gusta que te diga así, por eso no lo digo todo el tiempo jejeje.
+También quiero agradecerte por abrirme siempre las puertas de tu casa y hacerme sentir bienvenido. Son pequeños detalles que nunca voy a olvidar.
+Hay algo más que quiero decirte. Muchas veces siento que te fallé como mejor amigo por mis actitudes inmaduras. Sé que hubo momentos en los que te hice sentir mal e incluso te hice llorar, y de verdad me arrepiento mucho de todo eso. Gracias por seguir brindándome tu amistad a pesar de mis errores. Eso demuestra el gran corazón que tienes.
+Por eso quiero seguir mejorando y ser un mejor amigo para ti, alguien en quien puedas confiar siempre, alguien que esté contigo tanto en los momentos buenos como en los difíciles Quiero que sepas que siempre podrás contar conmigo para lo que necesites.
+Te quiero muchísimo, rabanito. Nunca olvides lo importante que eres para mí. Gracias por todos los recuerdos, por todas las risas y por ser esa persona tan especial que llegó a mi vida.
+Espero que este nuevo año esté lleno de felicidad, salud, nuevas experiencias y muchos sueños cumplidos. Te mereces todo lo bonito que la vida pueda darte.
+Feliz cumpleaños, rabanitoooooo. ❤️ Nunca dudes de lo mucho que te quiero y de lo importante que eres para mí. Te adoro muchísimo. 💖
+
+`;
+
+let posicion = 0;
+
+// ==============================
+// BOTÓN DEL REGALO
+// ==============================
+
+boton.addEventListener("click", () => {
+
+    boton.style.display = "none";
+
+    carta.classList.remove("oculto");
+
+    escribirCarta();
+
+});
+// ==============================
+// EFECTO DE ESCRITURA
+// ==============================
+
+function escribirCarta() {
+
+    if (posicion < mensaje.length) {
+
+        textoCarta.innerHTML += mensaje.charAt(posicion);
+
+        posicion++;
+
+        setTimeout(escribirCarta, 45);
+
+    } else {
+
+        // Mostrar la galería cuando termine la carta
+        setTimeout(() => {
+
+            galeria.classList.remove("oculto");
+
+            galeria.scrollIntoView({
+                behavior: "smooth"
+            });
+
+            iniciarCorazones();
+
+            // En la Parte 3.2 aquí iniciaremos
+            // los fuegos artificiales.
+            iniciarFuegos();
+
+        }, 1200);
+
+    }
+
+}
+
+
+
+// ==============================
+// LLUVIA DE CORAZONES
+// ==============================
+
+function iniciarCorazones() {
+
+    setInterval(() => {
+
+        const corazon = document.createElement("div");
+
+        corazon.className = "heart";
+
+        corazon.innerHTML = Math.random() > 0.5 ? "❤" : "💖";
+
+        corazon.style.left = Math.random() * 100 + "%";
+
+        corazon.style.fontSize =
+            (18 + Math.random() * 28) + "px";
+
+        corazon.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+
+            corazon.remove();
+
+        }, 8000);
+
+    }, 350);
+
+}
+// ==============================
+// VISOR DE IMÁGENES
+// ==============================
+
+const visor = document.getElementById("visor");
+const imagenGrande = document.getElementById("imagenGrande");
+const cerrar = document.getElementById("cerrar");
+
+// const fotos ya fue declarado arriba para el carrusel 3D
+
+fotos.forEach((foto)=>{
+
+    foto.addEventListener("click",()=>{
+
+        visor.style.display="flex";
+
+        imagenGrande.src=foto.src;
+
+    });
+
+});
+
+cerrar.addEventListener("click",()=>{
+
+    visor.style.display="none";
+
+});
+
+visor.addEventListener("click",(e)=>{
+
+    if(e.target===visor){
+
+        visor.style.display="none";
+
+    }
+
+});
+
+
+// ==============================
+// FUEGOS ARTIFICIALES
+// ==============================
+
+const canvas = document.getElementById("fireworks");
+
+const ctx = canvas.getContext("2d");
+
+function ajustarCanvas(){
+
+    canvas.width=window.innerWidth;
+
+    canvas.height=window.innerHeight;
+
+}
+
+window.addEventListener("resize",ajustarCanvas);
+
+ajustarCanvas();
+
+let particulas=[];
+
+function crearExplosion(x,y){
+
+    for(let i=0;i<80;i++){
+
+        particulas.push({
+
+            x:x,
+
+            y:y,
+
+            radio:2+Math.random()*3,
+
+            color:`hsl(${Math.random()*360},100%,60%)`,
+
+            velocidadX:(Math.random()-0.5)*10,
+
+            velocidadY:(Math.random()-0.5)*10,
+
+            vida:100
+
+        });
+
+    }
+
+}
+
+function iniciarFuegos(){
+
+    setInterval(()=>{
+
+        crearExplosion(
+
+            Math.random()*canvas.width,
+
+            Math.random()*canvas.height*0.5+50
+
+        );
+
+    },900);
+
+}
+
+function animarFuegos(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for(let i=particulas.length-1;i>=0;i--){
+
+        let p=particulas[i];
+
+        ctx.beginPath();
+
+        ctx.arc(p.x,p.y,p.radio,0,Math.PI*2);
+
+        ctx.fillStyle=p.color;
+
+        ctx.fill();
+
+        p.x+=p.velocidadX;
+
+        p.y+=p.velocidadY;
+
+        p.velocidadY+=0.05;
+
+        p.vida--;
+
+        if(p.vida<=0){
+
+            particulas.splice(i,1);
+
+        }
+
+    }
+
+    requestAnimationFrame(animarFuegos);
+
+}
+
+animarFuegos();
+    </script>
+
+
+</body>
+
+</html>
